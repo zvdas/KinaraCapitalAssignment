@@ -5,7 +5,7 @@ const Student = require('../models/student.model');
 const asyncHandler = require('../middleware/async');
 
 // import ErrorResponse from utils
-const ErrorResponse = require('../utils/ErrorResponse')
+const ErrorResponse = require('../utils/errorResponse')
 
 // @desc    Get all students
 // @route   GET /api/v1/students
