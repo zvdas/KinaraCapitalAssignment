@@ -9,11 +9,26 @@ dotenv.config({ path: './config/config.env' });
 // config files
 const connectDB = require('./config/mongodb.config');
 
+// middleware files
+const errorHandler = require('./middleware/error');
+
+// route files
+const students = require('./routes/student.route');
+
 // define express app
 const app = express();
 
 // connect database
 connectDB();
+
+// use body parser
+app.use(express.json());
+
+// mount routers
+app.use('/api/v1/students', students);
+
+// use error handler
+app.use(errorHandler);
 
 //define port
 const PORT = process.env.PORT || 5000;
