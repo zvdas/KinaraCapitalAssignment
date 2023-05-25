@@ -54,12 +54,12 @@ const AdvancedResults = (Model) => async (req, res, next) => {
     /**
      * parse the page number and limit from query as integer base 10
      * default page without query is page 1 and
-     * default limit without query is 10 entries per page
+     * default limit without query is 5 entries per page
      * skip specifies the number of documents to skip (where to start/end)
      * total specifies the total number of documents in collection
      */
     const page = parseInt(req.query.page, 10) || 1;
-    const limit = parseInt(req.query.limit, 10) || 10;
+    const limit = parseInt(req.query.limit, 10) || 5;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
     const total = await Model.countDocuments();
