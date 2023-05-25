@@ -65,7 +65,6 @@ exports.getCreateStudent = asyncHandler(async (req, res, next) => {
 // @route   POST /api/v1/students
 // @access  Public
 exports.createStudent = asyncHandler(async(req, res, next) => {
-    console.log("post req: ", req.body);
     const student = await Student.create(req.body);
 
     if(!student) {

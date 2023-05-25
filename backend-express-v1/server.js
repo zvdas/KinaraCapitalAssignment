@@ -16,6 +16,9 @@ dotenv.config({ path: './config/config.env' });
 // import mongodb config files
 const connectDB = require('./config/mongodb.config');
 
+// import bodyParser
+const bodyParser = require('body-parser');
+
 // utils files
 const swaggerDocs = require('./utils/swagger');
 
@@ -34,6 +37,7 @@ connectDB();
 
 // use body parser
 app.use(express.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // set public folder to serve assets
 app.use(express.static(path.join(__dirname, 'public')));

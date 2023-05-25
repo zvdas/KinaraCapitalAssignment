@@ -18,6 +18,9 @@ const studentModel = require('../models/student.model');
 // import router
 const router = express.Router();
 
+router
+  .get('/newStudent', getCreateStudent);
+
 // swagger openAPI routes for '/' path
 /**
  * @openapi
@@ -58,10 +61,6 @@ router
   .route('/')
   .get(AdvancedResults(studentModel), getStudents)
   .post(createStudent);
-
-router
-  .get('/newStudent', getCreateStudent);
-
 
 // swagger openAPI routes for '/:id' path
 /**
