@@ -9,9 +9,11 @@ const ErrorResponse = require('../utils/ErrorResponse')
 exports.getStudents = asyncHandler(async(req, res, next) => {
     const students = await Student.find();
 
-    res
-        .status(200)
-        .json({ success: true, count: students.length, data: students })
+    if(req.header('accept')==='*/*') {
+        res
+            .status(200)
+            .json({ success: true, count: students.length, data: students });
+    }
 });
 
 // @desc    Get student by id
@@ -24,9 +26,11 @@ exports.getStudentById = asyncHandler(async(req, res, next) => {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
     }
 
-    res
-        .status(200)
-        .json({ success: true, data: student })
+    if(req.header('accept')==='*/*') {
+        res
+            .status(200)
+            .json({ success: true, data: student });
+    }
 })
 
 // @desc    Create a new student
@@ -39,9 +43,11 @@ exports.createStudent = asyncHandler(async(req, res, next) => {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
     }
 
-    res
-        .status(201)
-        .json({ success: true, message: 'Student created successfully' });
+    if(req.header('accept')==='*/*') {
+        res
+            .status(201)
+            .json({ success: true, message: 'Student created successfully' });
+    }
 })
 
 // @desc    Update student by id
@@ -54,11 +60,14 @@ exports.updateStudentById = asyncHandler(async(req, res, next) => {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
     }
 
-    res.status(200)
-        .json({
-            success: true,
-            message: `Student with ID '${req.params.id}' updated successfully`
-        });
+    if(req.header('accept')==='*/*') {
+        res
+            .status(200)
+            .json({
+                success: true,
+                message: `Student with ID '${req.params.id}' updated successfully`
+            });
+    }
 })
 
 // @desc    Delete student by id
@@ -71,10 +80,12 @@ exports.deleteStudentById = asyncHandler(async(req, res, next) => {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
     }
 
-    res
-        .status(200)
-        .json({
-            success: true,
-            message: `Student with ID '${req.params.id}' deleted successfully`
-        })
+    if(req.header('accept')==='*/*') {
+        res
+            .status(200)
+            .json({
+                success: true,
+                message: `Student with ID '${req.params.id}' deleted successfully`
+            });
+    }
 })
