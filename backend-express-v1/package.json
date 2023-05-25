@@ -1,0 +1,19 @@
+{
+  "name": "backend-express-v1",
+  "version": "1.0.0",
+  "description": "API that retrieves student details from database and returns the data in a paginated manner",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "SET NODE_ENV=production && node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
