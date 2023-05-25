@@ -47,7 +47,8 @@ const AdvancedResults = (Model) => async (req, res, next) => {
         query = query.sort(fields);
     } else {
         // default sort by date of creation in descending order
-        query = query.sort('-createdAt');
+        // query = query.sort('-createdAt');
+        query = query.sort('');
     }
 
     // pagination
@@ -69,7 +70,7 @@ const AdvancedResults = (Model) => async (req, res, next) => {
     const pagination = {};
 
     // next page
-    if(endIndex > total) {
+    if(endIndex < total) {
         pagination.next = {
             page: page + 1,
         }

@@ -1,6 +1,30 @@
 // import mongoose
 const mongoose = require('mongoose');
 
+// swagger openApi model
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Student:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: number
+ *           required: true
+ *         name:
+ *           type: string
+ *           required: true
+ *         email:
+ *           type: string
+ *           required: true
+ *         stream:
+ *           type: string
+ *           required: true
+ *         totalMarks:
+ *           type: number
+ *       additionalProperties: false
+ */
 // create student schema
 const StudentSchema = mongoose.Schema({
     id: {

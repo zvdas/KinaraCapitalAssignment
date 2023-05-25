@@ -1,0 +1,13 @@
+<div class="m-2 row">
+    <label for="stream" class="col-4 col-form-label">
+        Stream
+    </label>
+    <div class="col">
+        <select class="form-select" name="<%= form_name %>" id="<%= form_id %>" required>
+            <option selected><%= form_placeholder %></option>
+            <% form_value.map(stream => { %>
+                <option value="<%= stream %>"><%= stream %></option>
+            <%}) %>
+        </select>
+    </div>
+</div>
