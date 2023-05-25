@@ -21,13 +21,13 @@ const options = swaggerJSDoc.Options = {
             },
             contact: {
                 name: 'Return to The Student Score Application',
-                url: 'http://localhost:5000',
-                // url: 'https://.onrender.com',
+                // url: 'http://localhost:5000',
+                url: 'https://kca.onrender.com',
             },
         },
         servers: [
             {
-                url: 'https://.onrender.com',
+                url: 'https://kca.onrender.com',
                 description: 'Production server'
             },
             {
