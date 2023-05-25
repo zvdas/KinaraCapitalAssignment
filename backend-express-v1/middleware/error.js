@@ -1,6 +1,10 @@
-// import necessary libraries
-const ErrorResponse = require('../utils/ErrorResponse');
+// import errorResponse
+const ErrorResponse = require('../utils/errorResponse');
 
+/**
+ * errorHandler function, which takes in specific errors and returns
+ * user defined error messages & status codes
+ */
 errorHandler = (err, req, res, next) => {
     let error = {...err};
 
@@ -28,9 +32,10 @@ errorHandler = (err, req, res, next) => {
     }
 
     res
-        // status code default internal server error
+        // status code default for internal server error
         .status(err.statusCode || 500)
         .json({ status: false, error: err.message || 'Server Error' });
 }
 
+// export errorHandler
 module.exports = errorHandler;

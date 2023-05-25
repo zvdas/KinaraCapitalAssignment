@@ -1,4 +1,4 @@
-// import necessary modules
+// import mongoose
 const mongoose = require('mongoose');
 
 // configure mongodb connection

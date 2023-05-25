@@ -1,6 +1,10 @@
-// import necessary modules
-const Student = require('../models/Student.model');
+// import student model
+const Student = require('../models/student.model');
+
+// import asyncHandler from middleware
 const asyncHandler = require('../middleware/async');
+
+// import ErrorResponse from utils
 const ErrorResponse = require('../utils/ErrorResponse')
 
 // @desc    Get all students
@@ -13,7 +17,7 @@ exports.getStudents = asyncHandler(async(req, res, next) => {
         res
             .status(200)
             .json({ success: true, count: students.length, data: students });
-    }
+    };
 });
 
 // @desc    Get student by id
@@ -24,14 +28,14 @@ exports.getStudentById = asyncHandler(async(req, res, next) => {
 
     if(!student) {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
-    }
+    };
 
     if(req.header('accept')==='*/*') {
         res
             .status(200)
             .json({ success: true, data: student });
-    }
-})
+    };
+});
 
 // @desc    Create a new student
 // @route   POST /api/v1/students
@@ -41,14 +45,14 @@ exports.createStudent = asyncHandler(async(req, res, next) => {
 
     if(!student) {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
-    }
+    };
 
     if(req.header('accept')==='*/*') {
         res
             .status(201)
             .json({ success: true, message: 'Student created successfully' });
-    }
-})
+    };
+});
 
 // @desc    Update student by id
 // @route   PUT /api/v1/students/:id
@@ -58,7 +62,7 @@ exports.updateStudentById = asyncHandler(async(req, res, next) => {
 
     if(!student) {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
-    }
+    };
 
     if(req.header('accept')==='*/*') {
         res
@@ -67,8 +71,8 @@ exports.updateStudentById = asyncHandler(async(req, res, next) => {
                 success: true,
                 message: `Student with ID '${req.params.id}' updated successfully`
             });
-    }
-})
+    };
+});
 
 // @desc    Delete student by id
 // @route   DELETE /api/v1/students/:id
@@ -78,7 +82,7 @@ exports.deleteStudentById = asyncHandler(async(req, res, next) => {
 
     if(!student) {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
-    }
+    };
 
     if(req.header('accept')==='*/*') {
         res
@@ -87,5 +91,5 @@ exports.deleteStudentById = asyncHandler(async(req, res, next) => {
                 success: true,
                 message: `Student with ID '${req.params.id}' deleted successfully`
             });
-    }
-})
+    };
+});

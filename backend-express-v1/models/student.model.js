@@ -1,7 +1,7 @@
-// import necessary modules
+// import mongoose
 const mongoose = require('mongoose');
 
-// create course schema
+// create student schema
 const StudentSchema = mongoose.Schema({
     id: {
         type: Number,
@@ -37,5 +37,5 @@ const StudentSchema = mongoose.Schema({
     }
 })
 
-// export course schema
+// export student schema
 module.exports = mongoose.model('Student', StudentSchema);

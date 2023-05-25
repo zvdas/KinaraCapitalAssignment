@@ -1,18 +1,22 @@
-// import necessary modules
+// import express to create and start server
 const express = require('express');
+
+// import dotenv to call environment variables
 const dotenv = require('dotenv');
+
+// import colors to console log with text decoration
 const colors = require('colors');
 
 // load environment variables
 dotenv.config({ path: './config/config.env' });
 
-// config files
+// import mongodb config files
 const connectDB = require('./config/mongodb.config');
 
 // middleware files
 const errorHandler = require('./middleware/error');
 
-// route files
+// import route files
 const students = require('./routes/student.route');
 
 // define express app
