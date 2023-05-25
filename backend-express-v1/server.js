@@ -6,8 +6,14 @@ const colors = require('colors');
 // load environment variables
 dotenv.config({ path: './config/config.env' });
 
+// config files
+const connectDB = require('./config/mongodb.config');
+
 // define express app
 const app = express();
+
+// connect database
+connectDB();
 
 //define port
 const PORT = process.env.PORT || 5000;
