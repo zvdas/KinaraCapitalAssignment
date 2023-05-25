@@ -10,13 +10,17 @@ const {
   deleteStudentById,
 } = require('../controllers/student.controller');
 
+// use AdvancedResults with student model
+const AdvancedResults = require('../middleware/advancedResults');
+const studentModel = require('../models/student.model');
+
 // import router
 const router = express.Router();
 
 // match routes for path "/" to controller methods
 router
 .route('/')
-.get(getStudents)
+.get(AdvancedResults(studentModel), getStudents)
 .post(createStudent);
 
 // match routes for path "/:id" to controller methods
