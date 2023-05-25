@@ -52,6 +52,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// get homepage route
+app.get('/', (req, res, next) => {
+    res
+      .status(200)
+      .redirect('/api/v1/students');
+});
+
 // mount routers
 app.use('/api/v1/students', students);
 
