@@ -19,6 +19,9 @@ const connectDB = require('./config/mongodb.config');
 // import bodyParser
 const bodyParser = require('body-parser');
 
+// import method override
+const methodOverride = require('method-override');
+
 // utils files
 const swaggerDocs = require('./utils/swagger');
 
@@ -34,6 +37,9 @@ const app = express();
 
 // connect database
 connectDB();
+
+// use method override to send PUT & DELETE requests from browser forms
+app.use(methodOverride('_method'));
 
 // use body parser
 app.use(express.json());

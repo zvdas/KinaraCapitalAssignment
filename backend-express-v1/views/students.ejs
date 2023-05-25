@@ -36,7 +36,7 @@
                   <p>|</p>
                   <% } %>
                   <p>
-                    page <%= results.pagination.curr.page %> of <%= parseInt(results.total/results.limit) %>
+                    page <%= results.pagination.curr.page %> of <%= Math.ceil(results.total/results.limit) %>
                   </p>
                   <% if (results.pagination.next) { %>
                   <p>|</p>
@@ -84,7 +84,6 @@
                                         method="post"
                                     >
                                         <input type="hidden" name="_method" value="DELETE" />
-                                        <!-- <input class="btn btn-primary w-100" type="submit" value="Delete" /> -->
                                         <button type="submit" class="btn btn-danger">
                                             <span class="material-symbols-outlined">
                                                 delete

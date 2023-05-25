@@ -26,7 +26,6 @@
                             <!-- post -->
                             <form action="/api/v1/students" method="POST">
                         <% } %>
-
                             <!-- form input fields -->
                             <%- include("text-input-form-template", {form_id: "id", form_name: "id", form_label: "ID", form_type: "number", form_value: result.id, form_placeholder: ""}) %>
                             <%- include("text-input-form-template", {form_id: "name", form_name: "name", form_label: "Name", form_type: "text", form_value: result.name, form_placeholder: "Example: John Doe"}) %>

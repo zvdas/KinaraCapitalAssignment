@@ -116,13 +116,11 @@ exports.updateStudentById = asyncHandler(async(req, res, next) => {
 // @route   DELETE /api/v1/students/:id
 // @access  Public
 exports.deleteStudentById = asyncHandler(async(req, res, next) => {
-    const student = await Student.findById(req.params.id);
+    const student = await Student.findByIdAndDelete(req.params.id);
 
     if(!student) {
         return next(new ErrorResponse(`Student with '${req.params.id}' not found`, 404));
     };
-
-    student.remove();
 
     if(req.header('accept')==='*/*') {
         res
